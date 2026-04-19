@@ -19,34 +19,34 @@ All libraries are header-only or header + cpp files, you can just put them into 
 ## 目录
 
 ### 重要组件
-- [Cifa](#cifa)
-- [INIReader](#inireader)
-- [CheckDependency](#checkdependency)
-- [vramusage](#vramusage)
+- [Cifa](#cifa)：一个轻量的 C 风格脚本解释器。
+- [INIReader](#inireader)：用于读取与写入 ini 配置文件。
+- [CheckDependency](#checkdependency)：用于检查 exe/dll 的依赖关系和缺失符号。
+- [vramusage](#vramusage)：在 Windows 上查询更准确的显存占用信息。
 ### 方便使用的小组件
-- [strfunc](#strfunc)
-- [filefunc](#filefunc)
-- [ArchiveFile](#archivefile)
-- [ZipFile](#zipfile)
-- [SimpleCC](#simplecc)
-- [PotConv](#potconv)
-- [Timer](#timer)
-- [Random](#random)
-- [DynamicLibrary](#dynamiclibrary)
-- [ConsoleControl](#consolecontrol)
-- [cmdline](#cmdline)
-- [StrCvt](#strcvt)
-- [DrawStringFT](#drawstringft)
-- [FunctionTrait](#functiontrait)
-- [targetlnk](#targetlnk)
-- [runtime_format](#runtime_format)
-- [INIReaderBin](#inireaderbin)
-- [SimpleBuffer](#simplebuffer)
-- [SQLite3Wrapper](#sqlite3wrapper)
-- [versioninfo](#versioninfo)
+- [strfunc](#strfunc)：提供常见字符串处理与解析函数。
+- [filefunc](#filefunc)：提供文件读写与路径处理实用函数。
+- [ArchiveFile](#archivefile)：统一封装压缩包读写（7z/zip）。
+- [ZipFile](#zipfile)：基于 libzip 的 zip 文件操作封装。
+- [SimpleCC](#simplecc)：基于词典的简易文本转换工具。
+- [PotConv](#potconv)：基于 iconv 的编码转换工具。
+- [Timer](#timer)：用于统计代码耗时的计时器。
+- [Random](#random)：对随机数生成器的轻量封装。
+- [DynamicLibrary](#dynamiclibrary)：动态库加载与函数获取工具。
+- [ConsoleControl](#consolecontrol)：控制台颜色与光标控制工具。
+- [cmdline](#cmdline)：命令行参数解析工具（含 Windows 细节修正）。
+- [StrCvt](#strcvt)：字符串与 UTF8/UTF16/宽字符互转工具。
+- [DrawStringFT](#drawstringft)：在图像上绘制文本（含中文）工具。
+- [FunctionTrait](#functiontrait)：用于提取成员函数签名信息。
+- [targetlnk](#targetlnk)：读取 Windows `.lnk` 快捷方式目标。
+- [runtime_format](#runtime_format)：运行时格式化工具（C++26 前置实现）。
+- [INIReaderBin](#inireaderbin)：把 ini 元数据与二进制内容打包存储。
+- [SimpleBuffer](#simplebuffer)：用于连续内存的简易缓冲区类型。
+- [SQLite3Wrapper](#sqlite3wrapper)：SQLite3 的轻量 RAII 封装。
+- [versioninfo](#versioninfo)：读取 Windows 可执行文件版本信息。
 ### 实验组件
-- [FakeJson](#fakejson)
-- [CaptureStdio](#capturestdio)
+- [FakeJson](#fakejson)：不支持转义字符的简化 JSON 组件。
+- [CaptureStdio](#capturestdio)：可靠捕获 stdout 输出（支持 tee 模式）。
 
 # Important Components 重要组件
 

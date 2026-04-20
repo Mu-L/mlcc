@@ -32,6 +32,40 @@ public:
     {
         std::unordered_map<std::string, T*> index;
 
+        ListWithIndex() = default;
+
+        // 拷贝构造：重建 index，使指针指向新 list 的节点而非原节点
+        ListWithIndex(const ListWithIndex& other) : std::list<Record<T>>(other)
+        {
+            rebuild_index();
+        }
+
+        // 拷贝赋值
+        ListWithIndex& operator=(const ListWithIndex& other)
+        {
+            if (this != &other)
+            {
+                std::list<Record<T>>::operator=(other);
+                rebuild_index();
+            }
+            return *this;
+        }
+
+        // 移动构造：std::list 移动后节点地址不变，index 指针仍然有效
+        ListWithIndex(ListWithIndex&& other) noexcept
+            : std::list<Record<T>>(std::move(other)), index(std::move(other.index)) {}
+
+        // 移动赋值
+        ListWithIndex& operator=(ListWithIndex&& other) noexcept
+        {
+            if (this != &other)
+            {
+                std::list<Record<T>>::operator=(std::move(other));
+                index = std::move(other.index);
+            }
+            return *this;
+        }
+
         T& operator[](const std::string& key)
         {
             auto key1 = COM_METHOD()(key);
@@ -67,6 +101,20 @@ public:
                     return &sec.value == &it;
                 });
             index.erase(COM_METHOD()(key));
+        }
+
+    private:
+        // 重建 index：令所有指针指向当前 list 的节点（拷贝后调用）
+        void rebuild_index()
+        {
+            index.clear();
+            for (auto& rec : *this)
+            {
+                if (!rec.key.empty())
+                {
+                    index[COM_METHOD()(rec.key)] = &rec.value;
+                }
+            }
         }
     };
 
@@ -266,8 +314,8 @@ public:
     }
 
     INIReader_t(const INIReader_t& ini)
+        : root(ini.root), line_break_(ini.line_break_), error_(ini.error_), bom_(ini.bom_)
     {
-        loadString(ini.toString());
     }
     INIReader_t& operator=(const INIReader_t& ini)
     {
@@ -275,8 +323,10 @@ public:
         {
             return *this;
         }
-        clear();
-        loadString(ini.toString());
+        root = ini.root;
+        line_break_ = ini.line_break_;
+        error_ = ini.error_;
+        bom_ = ini.bom_;
         return *this;
     }
 

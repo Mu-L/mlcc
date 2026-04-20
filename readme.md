@@ -66,47 +66,9 @@ Read and write ini file. Please see [doc/inireader.md](doc/inireader.md) for det
 
 ## CheckDependency
 
-Only for Windows.
+Only for Windows. Please see [doc/checkdependency.md](doc/checkdependency.md) for detailed usage.
 
-仅支持 Windows。
-
-To check the dependencies of a exe or dll file.
-
-用于检查 exe 或 dll 文件的依赖关系。
-
-The CheckDependency is similar to the data viewed using the command dumpbin /DEPENDENTS.
-It can help you get the platform (x64 or x86) of each dll that this exe or dll depends on, as well as the functions exported by each dll, the functions of each dll used by this file, and each problem Dlls (missing functions).
-
-CheckDependency 与命令 dumpbin /DEPENDENTS 所看到的数据相近。
-它可以帮助你获取某个 exe 或 dll 依赖的每个 dll 的平台信息，比如 x64 或 x86，以及每个 dll 导出的函数、当前文件实际用到的函数，以及每个有问题的 dll，比如缺失函数的 dll。
-
-An example:
-
-示例：
-
-```c++
-CheckDependency dep;
-auto problem_dlls = dep.Check("myself.dll");
-std::cout << "Problem Dlls : " << std::endl;
-for(auto& item : problem_dlls)
-{
-    std::cout << "(" << item.second.machine.c_str() << ")"
-    << item.first << ", lost functions: " << item.second.lost_functions.size()
-    << std::endl;
-}
-std::cout << "Import Table: " << std::endl;
-for(auto& item : dep.ImportTable())
-{
-    std::cout << "(" << item.second.machine.c_str() << ")"
-    << item.first << ", used functions: " << item.second.used_functions.size()
-    << std::endl;
-}
-std::cout << "Export Table: " << std::endl;
-for(auto& item : dep.ExportTable())
-{
-    std::cout << item.first << ", export functions: " << item.second.size() << std::endl;
-}
-```
+仅支持 Windows。完整介绍和 API 参考请见 [doc/checkdependency.md](doc/checkdependency.md)。
 
 ## vramusage
 

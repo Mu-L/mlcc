@@ -8,13 +8,13 @@ MLCC means Multi-layer Ceramic Capacitors.
 
 MLCC 的含义是 Multi-layer Ceramic Capacitors，也就是多层陶瓷电容器。
 
-All libraries are of standard C++ and of cross platforms.
+All libraries are of standard C++ and of cross platforms unless otherwise specified.
 
-所有库均基于标准 C++，并支持跨平台使用。
+所有库基于标准 C++，如无特别说明，均支持跨平台使用。
 
 All libraries are header-only or header + cpp files, you can just put them into your project to use.
 
-均是仅头文件，或者者头文件 + cpp 文件的形式，使用时直接把它们放到你的项目里就可以了。
+均是仅头文件，或者头文件 + cpp 文件的形式，使用时直接把它们放到你的项目里就可以了。
 
 ## 目录
 

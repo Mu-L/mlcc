@@ -54,9 +54,9 @@ All libraries are header-only or header + cpp files, you can just put them into 
 
 ## Cifa
 
-A simple c-style script, please see [doc/cifa.md](doc/cifa.md) for more details.
+Cifa is a simple c-style script, which has been turned into an independent project.
 
-一个简单的 C 风格脚本语言，用法介绍请见 [doc/cifa.md](doc/cifa.md)。
+Cifa是一个简单的 C 风格脚本语言，已经转为独立项目。
 
 ## INIReader
 
